@@ -1,0 +1,28 @@
+{
+  "name": "Kabutan chart clip",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Clip a chart."
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://kabutan.jp/stock/*"
+      ],
+      "js": [
+        "moment.min.js",
+        "html2canvas.min.js",
+        "./js/content-script.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "./js/background.js"
+  }
+}
